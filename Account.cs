@@ -6,7 +6,6 @@ namespace ClassAndObject
         public string Name { get; set; }
         public decimal Balance { get; set; } = 1000;
 
-        //    , Debit(decimal amount), Tranfer(int anotherAccountId)
 
         public decimal Credit(decimal amount)
         {

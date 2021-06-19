@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
@@ -38,64 +39,91 @@ namespace ClassAndObject
 
             //for InvoiceItem
 
-            // System.Console.WriteLine("Enter Id");
-            // var id = int.Parse(System.Console.ReadLine());
+            List<InvoiceItem> invoices = new List<InvoiceItem>();
 
-            // System.Console.WriteLine("Enter description: ");
-            // var desc = System.Console.ReadLine();
+            System.Console.WriteLine("How many invoices do you want to add ?");
+            var length = int.Parse(System.Console.ReadLine());
+            int i = 0;
 
-            // System.Console.WriteLine("Enter Quantity");
-            // var quantity = int.Parse(System.Console.ReadLine());
+            while (i < length)
+            {
+                System.Console.WriteLine("Enter Id");
+                var id = int.Parse(System.Console.ReadLine());
 
-            // System.Console.WriteLine("Enter Rate");
-            // var rate = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine("Enter description: ");
+                var desc = System.Console.ReadLine();
+
+                System.Console.WriteLine("Enter Quantity");
+                var quantity = int.Parse(System.Console.ReadLine());
+
+                System.Console.WriteLine("Enter Rate");
+                var rate = int.Parse(System.Console.ReadLine());
 
 
-            // var invoiceItem = new InvoiceItem
-            // {
-            //     Id = id,
-            //     Description = desc,
-            //     Quantity = quantity,
-            //     Rate = rate
-            // };
+                var invoiceItem = new InvoiceItem
+                {
+                    Id = id,
+                    Description = desc,
+                    Quantity = quantity,
+                    Rate = rate
+                };
 
 
-            // System.Console.WriteLine($"Total is : {invoiceItem.GetTotal()}");
+                invoices.Add(invoiceItem);
+                i++;
+            }
+
+
+            Console.WriteLine("{0,0}\t{1,10}\t{2,5}\t{3,10}\t{4,10}", "ID", "Description", "Quantity", "Rate", "Subtotal");
+            foreach (var invoice in invoices)
+            {
+              Console.WriteLine("{0,0}\t{1,10}\t{2,5}\t{3,10}\t{4,10}", invoice.Id, invoice.Description, invoice.Quantity, invoice.Rate, invoice.Rate * invoice.Quantity);
+            }
+            System.Console.Write("---------------------------------------------------");
+
+            double total = 0;
+
+            foreach (var invoice in invoices)
+            {
+                total += invoice.GetTotal();
+            }
+
+            System.Console.WriteLine($" Total {total}");
 
 
             //For Account
-            System.Console.WriteLine("Enter Name : ");
-            var name = System.Console.ReadLine();
+            // System.Console.WriteLine("Enter Name : ");
+            // var name = System.Console.ReadLine();
 
-            System.Console.WriteLine("Enter amount to deposit : ");
-            var amount = decimal.Parse(System.Console.ReadLine());
-
-
-
-            var account = new Account
-            {
-                Name = name
-            };
+            // System.Console.WriteLine("Enter amount to deposit : ");
+            // var amount = decimal.Parse(System.Console.ReadLine());
 
 
-            System.Console.WriteLine($"Your total Balance in your account is {account.Credit(amount)}");
+
+            // var account = new Account
+            // {
+            //     Name = name
+            // };
 
 
-            
+            // System.Console.WriteLine($"Your total Balance in your account is {account.Credit(amount)}");
 
 
-            System.Console.WriteLine("Enter withdraw amount: ");
-            var amountToWitdraw = decimal.Parse(System.Console.ReadLine());
 
-            account.Debit(amountToWitdraw);
 
-            System.Console.WriteLine("Enter account id");
-            var id = int.Parse(System.Console.ReadLine());
 
-            System.Console.WriteLine("Enter ammount for transfer to another");
-            var amountToTransfer = int.Parse(System.Console.ReadLine());
+            // System.Console.WriteLine("Enter withdraw amount: ");
+            // var amountToWitdraw = decimal.Parse(System.Console.ReadLine());
 
-            account.Transfer(id,amountToTransfer);
+            // account.Debit(amountToWitdraw);
+
+            // System.Console.WriteLine("Enter account id");
+            // var id = int.Parse(System.Console.ReadLine());
+
+            // System.Console.WriteLine("Enter ammount for transfer to another");
+            // var amountToTransfer = int.Parse(System.Console.ReadLine());
+
+            // account.Transfer(id,amountToTransfer);
         }
     }
 }
