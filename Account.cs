@@ -4,7 +4,7 @@ namespace ClassAndObject
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Balance { get; set; } = 100;
+        public decimal Balance { get; set; } = 1000;
 
         //    , Debit(decimal amount), Tranfer(int anotherAccountId)
 
@@ -17,16 +17,25 @@ namespace ClassAndObject
         {
             if(amount <= Balance)
             {
-                Balance = Balance - amount;
-                System.Console.WriteLine($"You have withdraw {Balance}");;
+                Balance -= amount;
+                System.Console.WriteLine($"You have withdraw {amount} total amount is {Balance}");
+
+            }else{
+            System.Console.WriteLine("In sufficent balance in your account.");
 
             }
-            System.Console.WriteLine("In sufficent balance in your account.");
         }
 
-        public void Transfer(int anotherAccountId, double amount)
+        public void Transfer(int anotherAccountId, decimal amount)
         {
-            System.Console.WriteLine($"successfully transferring {amount} to Id: {anotherAccountId}  ");
+            if(amount<=Balance){
+                Balance -= amount;
+                System.Console.WriteLine($"successfully transferring {amount} to Id: {anotherAccountId} new balance is : ${Balance}  ");
+            }else{
+                System.Console.WriteLine($"Insufficient balance {Balance} ");
+            }
+
+
         }
 
 

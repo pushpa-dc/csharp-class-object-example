@@ -81,17 +81,21 @@ namespace ClassAndObject
             System.Console.WriteLine($"Your total Balance in your account is {account.Credit(amount)}");
 
 
+            
+
+
+            System.Console.WriteLine("Enter withdraw amount: ");
+            var amountToWitdraw = decimal.Parse(System.Console.ReadLine());
+
+            account.Debit(amountToWitdraw);
+
             System.Console.WriteLine("Enter account id");
             var id = int.Parse(System.Console.ReadLine());
 
-            System.Console.WriteLine("Enter ammount");
+            System.Console.WriteLine("Enter ammount for transfer to another");
             var amountToTransfer = int.Parse(System.Console.ReadLine());
 
-            account.Transfer(123, 234234234);
-
-
-
-
+            account.Transfer(id,amountToTransfer);
         }
     }
 }
