@@ -1,4 +1,10 @@
+
+
 # csharp-class-object-example
+
+1. git clone https://github.com/pushpa-dc/csharp-class-object-example.git
+2. dotnet run or dotnet watch run
+
 C# class and object for beginners examples
 
 Questions:
