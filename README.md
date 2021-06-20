@@ -19,4 +19,4 @@ Id, Name, Balance
 Credit(decimal amount), Debit(decimal amount), Tranfer(int anotherAccountId)
 (Hint: Credit : Balance + amount, Debit : if amount <= Balance then Balance-amount else error)
 
-![A test image](image.png)
+![Class and Object C# example](ClassAndObject.PNG)
